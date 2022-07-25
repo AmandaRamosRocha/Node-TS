@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
-import IUser from '../../../interfaces/domain/IUser';
-import IUserHelper from '../../../interfaces/domain/IUserHelper';
-import IUserValidation from '../../../interfaces/domain/IUserValidation';
+import IUser from '@interfaces/domain/IUser';
+import IUserHelper from '@interfaces/domain/IUserHelper';
+import IUserValidation from '@interfaces/domain/IUserValidation';
 
 @injectable()
 export default class UserValidation implements IUserValidation {

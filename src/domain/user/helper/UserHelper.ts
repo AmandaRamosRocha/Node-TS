@@ -1,6 +1,6 @@
-import IUserHelper from '../../../interfaces/domain/IUserHelper';
-import IUser from '../../../interfaces/domain/IUser';
-import StatusError from '../../../util/StatusError';
+import IUserHelper from '@interfaces/domain/IUserHelper';
+import IUser from '@interfaces/domain/IUser';
+import StatusError from '@util/StatusError';
 
 export default class UserHelper implements IUserHelper {
   checkIfEquals(

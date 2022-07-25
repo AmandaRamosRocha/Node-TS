@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { inject, injectable } from 'tsyringe';
-import IController from '../interfaces/presentation/IController';
-import IUserRoutes from '../interfaces/presentation/IUserRoutes';
-import { MiddlewareType } from '../interfaces/middlewares/MiddlewareType';
-import { ControllerAdapterType } from '../interfaces/middlewares/ControllerAdapterType';
+import IController from '@interfaces/presentation/IController';
+import IUserRoutes from '@interfaces/presentation/IUserRoutes';
+import { MiddlewareType } from '@interfaces/middlewares/MiddlewareType';
+import { ControllerAdapterType } from '@interfaces/middlewares/ControllerAdapterType';
 
 @injectable()
 export default class UserRoutes implements IUserRoutes {

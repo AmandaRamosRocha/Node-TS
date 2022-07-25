@@ -1,5 +1,5 @@
-import IUser from '../../../interfaces/domain/IUser';
-import IUserRepository from '../../../interfaces/domain/IUserRepository';
+import IUser from '@interfaces/domain/IUser';
+import IUserRepository from '@interfaces/domain/IUserRepository';
 
 export default class UserRepository implements IUserRepository {
   database: IUser[];

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextFunction, Request, Response } from 'express';
-import IStatusError from '../interfaces/util/IStatusError';
+import IStatusError from '@interfaces/util/IStatusError';
 
 export default async function errorMiddleware(
   err: IStatusError,

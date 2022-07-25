@@ -1,7 +1,7 @@
-import IUserListService from '../../../interfaces/domain/IUserListService';
+import IUserListService from '@interfaces/domain/IUserListService';
 import { inject, injectable } from 'tsyringe';
-import IUserRepository from '../../../interfaces/domain/IUserRepository';
-import IUserListResponse from '../../../interfaces/domain/IUserListResponse';
+import IUserRepository from '@interfaces/domain/IUserRepository';
+import IUserListResponse from '@interfaces/domain/IUserListResponse';
 
 @injectable()
 export default class UserListService implements IUserListService {
