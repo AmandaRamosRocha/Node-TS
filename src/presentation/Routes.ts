@@ -27,7 +27,7 @@ export default class UserRoutes implements IUserRoutes {
     this.routes();
   }
 
-  routes(): void {
+  public routes(): void {
     this.router.post(
       '/customer',
       this.userMiddleware,

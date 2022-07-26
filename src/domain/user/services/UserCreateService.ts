@@ -16,7 +16,7 @@ export default class UserCreateService implements IUserCreateService {
     this.userRepository = userRepository;
   }
 
-  createUser(body: IUser): IUser {
+  public createUser(body: IUser): IUser {
     this.userValidation.validate(
       body.cpf,
       body.email,

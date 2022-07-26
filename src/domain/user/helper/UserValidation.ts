@@ -10,7 +10,7 @@ export default class UserValidation implements IUserValidation {
     this.userHelper = userHelper;
   }
 
-  validate(cpf: string, email: string, database: IUser[]) {
+  public validate(cpf: string, email: string, database: IUser[]) {
     this.userHelper.cpfValidate(cpf);
     this.userHelper.checkIfEquals(cpf, 'cpf', database);
     this.userHelper.checkIfEquals(email, 'email', database);

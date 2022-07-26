@@ -10,10 +10,14 @@ export default class UserListController implements IController {
     this.userListService = userListService;
   }
 
-  handle(req: Request, res: Response, next: NextFunction): void {
+  public handle(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Response | void {
     try {
       const listUser = this.userListService.listUser();
-      res.status(201).json(listUser);
+      return res.status(201).json(listUser);
     } catch (error) {
       next(error);
     }

@@ -10,7 +10,7 @@ export default class UserListService implements IUserListService {
     this.userRepository = userRepository;
   }
 
-  listUser(): IUserListResponse[] {
+  public listUser(): IUserListResponse[] {
     const result: IUserListResponse[] = this.userRepository.database.map(
       ({ fullName, email }) => {
         return {

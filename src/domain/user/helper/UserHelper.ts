@@ -3,7 +3,7 @@ import IUser from '@interfaces/domain/IUser';
 import StatusError from '@util/StatusError';
 
 export default class UserHelper implements IUserHelper {
-  checkIfEquals(
+  public checkIfEquals(
     field: string,
     fieldName: keyof IUser,
     database: IUser[]
@@ -16,7 +16,7 @@ export default class UserHelper implements IUserHelper {
     });
   }
 
-  cpfValidate(cpf: string): void {
+  public cpfValidate(cpf: string): void {
     let cpfArray = Array.from(cpf, Number);
 
     const firstDigit = cpfArray[0];
