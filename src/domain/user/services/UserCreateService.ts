@@ -16,12 +16,13 @@ export default class UserCreateService implements IUserCreateService {
     this.userRepository = userRepository;
   }
 
-  createUser(body: IUser): void {
+  createUser(body: IUser): IUser {
     this.userValidation.validate(
       body.cpf,
       body.email,
       this.userRepository.database
     );
-    this.userRepository.create(body);
+    const newUser = this.userRepository.create(body);
+    return newUser;
   }
 }

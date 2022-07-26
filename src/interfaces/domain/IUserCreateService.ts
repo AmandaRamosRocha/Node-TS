@@ -1,5 +1,5 @@
 import Iuser from './IUser';
 
 export default interface IUserCreateService {
-  createUser(body: Iuser): void;
+  createUser(body: Iuser): Iuser;
 }
