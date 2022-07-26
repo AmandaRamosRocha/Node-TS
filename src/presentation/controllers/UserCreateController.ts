@@ -12,7 +12,11 @@ export default class UserCreateController implements IController {
     this.userCreateService = userCreateService;
   }
 
-  handle(req: Request, res: Response, next: NextFunction): Response | void {
+  public handle(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Response | void {
     try {
       const newUser = this.userCreateService.createUser(req.body);
       return res.status(201).json(newUser);
