@@ -16,6 +16,22 @@ export default class UserHelper implements IUserHelper {
     });
   }
 
+  public calcDigit(cpfArray: number[], start = 1): number | undefined {
+    let result: number | undefined =
+      cpfArray.reduce(
+        (resultValue: number, currentValue: number, currentIndex: number) => {
+          const totalSum = resultValue + currentValue * (currentIndex + start);
+          return totalSum;
+        },
+        0
+      ) % 11;
+    if (result >= 10) {
+      const resultString = Array.from(result.toString(), Number);
+      result = resultString.pop();
+    }
+    return result;
+  }
+
   public cpfValidate(cpf: string): void {
     let cpfArray = Array.from(cpf, Number);
 
@@ -31,29 +47,12 @@ export default class UserHelper implements IUserHelper {
     const confirmationDigits = cpfArray.slice(-2);
     cpfArray = cpfArray.slice(0, -2);
 
-    function calcDigit(start = 1): number | undefined {
-      let result: number | undefined =
-        cpfArray.reduce(
-          (resultValue: number, currentValue: number, currentIndex: number) => {
-            const totalSum =
-              resultValue + currentValue * (currentIndex + start);
-            return totalSum;
-          },
-          0
-        ) % 11;
-      if (result >= 10) {
-        const resultString = Array.from(result.toString(), Number);
-        result = resultString.pop();
-      }
-      return result;
-    }
-
-    const firstDigitAfterDash = calcDigit();
+    const firstDigitAfterDash = this.calcDigit(cpfArray);
     if (firstDigitAfterDash !== confirmationDigits[0]) {
       throw new StatusError(422, 'CPF inválido');
     }
     cpfArray.push(firstDigitAfterDash);
-    if (calcDigit(0) !== confirmationDigits[1])
+    if (this.calcDigit(cpfArray, 0) !== confirmationDigits[1])
       throw new StatusError(422, 'CPF inválido');
   }
 }
