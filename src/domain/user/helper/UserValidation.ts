@@ -11,8 +11,14 @@ export default class UserValidation implements IUserValidation {
   }
 
   public validate(cpf: string, email: string, database: IUser[]) {
-    this.userHelper.cpfValidate(cpf);
-    this.userHelper.checkIfEquals(cpf, 'cpf', database);
-    this.userHelper.checkIfEquals(email, 'email', database);
+    if (!this.userHelper.cpfValidate(cpf)) {
+      throw new Error(`CPF ${cpf} inválido`);
+    }
+    if (!this.userHelper.checkIfEquals(cpf, 'cpf', database)) {
+      throw new Error(`CPF ${cpf} já cadastrado`);
+    }
+    if (!this.userHelper.checkIfEquals(email, 'email', database)) {
+      throw new Error(`Email ${email} já cadastrado`);
+    }
   }
 }
