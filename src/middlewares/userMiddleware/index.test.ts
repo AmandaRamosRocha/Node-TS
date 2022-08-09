@@ -5,9 +5,9 @@ import userMiddleware from '.';
 import userSchema from './userSchema';
 
 describe('index', () => {
+  const mReq = {} as Request;
   const mRes = {} as Response;
   const mNext = jest.fn();
-  const mReq = {} as Request;
   it("Should run next without parameters when validation doesn't throw", async () => {
     jest.spyOn(userSchema, 'validateAsync').mockResolvedValue({} as IUser);
     await userMiddleware(mReq, mRes, mNext);
