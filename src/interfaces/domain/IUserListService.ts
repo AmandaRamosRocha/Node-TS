@@ -1,5 +1,4 @@
-import IUserListResponse from './IUserListResponse';
-
+import IUser from './IUser';
 export default interface IUserListService {
-  listUser(): IUserListResponse[];
+  listUser(): IUser[];
 }
