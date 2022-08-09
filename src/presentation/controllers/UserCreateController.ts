@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'tsyringe';
 import IController from '@interfaces/presentation/IController';
 import IUserCreateService from '@interfaces/domain/IUserCreateService';
+import StatusError from '@util/StatusError';
 
 @injectable()
 export default class UserCreateController implements IController {
@@ -21,7 +22,7 @@ export default class UserCreateController implements IController {
       const newUser = this.userCreateService.createUser(req.body);
       return res.status(201).json(newUser);
     } catch (error) {
-      next(error);
+      next(new StatusError(422, `${error}`));
     }
   }
 }
