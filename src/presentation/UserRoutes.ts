@@ -7,23 +7,14 @@ import { ControllerAdapterType } from '@interfaces/middlewares/ControllerAdapter
 
 @injectable()
 export default class UserRoutes implements IUserRoutes {
-  userCreateController: IController;
-  userListController: IController;
-  router: Router;
-  userMiddleware: MiddlewareType;
-  controllerAdapter: ControllerAdapterType;
   constructor(
-    @inject('UserCreateController') userCreateController: IController,
-    @inject('UserListController') userListController: IController,
-    @inject('userMiddleware') userMiddleware: MiddlewareType,
-    @inject('ControllerAdapter') controllerAdapter: ControllerAdapterType,
-    @inject('Router') Router: Router
+    @inject('UserCreateController') private userCreateController: IController,
+    @inject('UserListController') private userListController: IController,
+    @inject('userMiddleware') private userMiddleware: MiddlewareType,
+    @inject('ControllerAdapter')
+    private controllerAdapter: ControllerAdapterType,
+    @inject('Router') private router: Router
   ) {
-    this.userCreateController = userCreateController;
-    this.userListController = userListController;
-    this.userMiddleware = userMiddleware;
-    this.controllerAdapter = controllerAdapter;
-    this.router = Router;
     this.routes();
   }
 

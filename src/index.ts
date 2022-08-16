@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import '@di/index';
 import express from 'express';
-import UserRoutes from '@presentation/Routes';
+import UserRoutes from '@presentation/UserRoutes';
 import { container } from 'tsyringe';
 import errorMiddleware from '@middlewares/errorMiddleware';
 import helmet from 'helmet';
