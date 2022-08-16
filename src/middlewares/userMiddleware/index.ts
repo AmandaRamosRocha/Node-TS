@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import StatusError from '../../util/StatusError';
+import StatusError from '@util/StatusError';
 import userSchema from './userSchema';
 
 export default async function (

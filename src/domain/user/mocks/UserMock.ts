@@ -1,4 +1,4 @@
-import IUser from '../../../interfaces/domain/IUser';
+import IUser from '@interfaces/domain/IUser';
 
 const User: IUser[] = [];
 

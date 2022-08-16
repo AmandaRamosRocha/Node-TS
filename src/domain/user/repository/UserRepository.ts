@@ -1,5 +1,5 @@
-import IUser from '../../../interfaces/domain/IUser';
-import IUserRepository from '../../../interfaces/domain/IUserRepository';
+import IUser from '@interfaces/domain/IUser';
+import IUserRepository from '@interfaces/domain/IUserRepository';
 
 export default class UserRepository implements IUserRepository {
   database: IUser[];
@@ -7,11 +7,12 @@ export default class UserRepository implements IUserRepository {
     this.database = [];
   }
 
-  create(entity: IUser): void {
+  public create(entity: IUser): IUser {
     this.database.push(entity);
+    return entity;
   }
 
-  readAll() {
+  public readAll() {
     return this.database;
   }
 }
