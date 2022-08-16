@@ -6,12 +6,9 @@ import StatusError from '@util/StatusError';
 
 @injectable()
 export default class UserCreateController implements IController {
-  userCreateService: IUserCreateService;
   constructor(
-    @inject('UserCreateService') userCreateService: IUserCreateService
-  ) {
-    this.userCreateService = userCreateService;
-  }
+    @inject('UserCreateService') private userCreateService: IUserCreateService
+  ) {}
 
   public handle(
     req: Request,

@@ -5,10 +5,7 @@ import IUserValidation from '@interfaces/domain/IUserValidation';
 
 @injectable()
 export default class UserValidation implements IUserValidation {
-  userHelper: IUserHelper;
-  constructor(@inject('UserHelper') userHelper: IUserHelper) {
-    this.userHelper = userHelper;
-  }
+  constructor(@inject('UserHelper') private userHelper: IUserHelper) {}
 
   public validate(cpf: string, email: string, database: IUser[]) {
     if (!this.userHelper.cpfValidate(cpf)) {

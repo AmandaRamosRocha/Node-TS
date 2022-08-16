@@ -2,13 +2,13 @@ import { NextFunction, Request, Response } from 'express';
 import { inject, injectable } from 'tsyringe';
 import IController from '@interfaces/presentation/IController';
 import IUserListService from '@interfaces/domain/IUserListService';
+import StatusError from '@util/StatusError';
 
 @injectable()
 export default class UserListController implements IController {
-  userListService: IUserListService;
-  constructor(@inject('UserListService') userListService: IUserListService) {
-    this.userListService = userListService;
-  }
+  constructor(
+    @inject('UserListService') private userListService: IUserListService
+  ) {}
 
   public handle(
     req: Request,
@@ -19,7 +19,7 @@ export default class UserListController implements IController {
       const listUser = this.userListService.userList();
       return res.json(listUser).status(200);
     } catch (error) {
-      next(error);
+      next(new StatusError(500, `${error}`));
     }
   }
 }

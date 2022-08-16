@@ -5,10 +5,9 @@ import IUser from '@interfaces/domain/IUser';
 
 @injectable()
 export default class UserListService implements IUserListService {
-  userRepository: IUserRepository;
-  constructor(@inject('UserRepository') userRepository: IUserRepository) {
-    this.userRepository = userRepository;
-  }
+  constructor(
+    @inject('UserRepository') private userRepository: IUserRepository
+  ) {}
 
   public userList(): IUser[] {
     const result: IUser[] = this.userRepository.readAll();
