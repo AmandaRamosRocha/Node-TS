@@ -16,8 +16,8 @@ export default class UserListController implements IController {
     next: NextFunction
   ): Response | void {
     try {
-      const listUser = this.userListService.listUser();
-      return res.status(201).json(listUser);
+      const listUser = this.userListService.userList();
+      return res.json(listUser).status(200);
     } catch (error) {
       next(error);
     }

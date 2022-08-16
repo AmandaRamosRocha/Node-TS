@@ -10,7 +10,7 @@ export default class UserListService implements IUserListService {
     this.userRepository = userRepository;
   }
 
-  public listUser(): IUser[] {
+  public userList(): IUser[] {
     const result: IUser[] = this.userRepository.readAll();
     return result;
   }
